@@ -41,7 +41,8 @@ class GoogleCalendarService:
                     },
                     self.scopes
                 )
-                creds = flow.run_local_server(port=0)
+                # 固定ポート8080で認証
+                creds = flow.run_local_server(port=8080, open_browser=True)
             
             # トークンを保存
             with open(token_file, 'wb') as token:
